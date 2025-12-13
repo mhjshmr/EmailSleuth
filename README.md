@@ -1,9 +1,9 @@
 # EmailSleuth – Email Header Forensics & Phishing Analyzer
 
 EmailSleuth is a Python-based cybersecurity and digital forensics tool designed to analyze .eml email files and identify phishing indicators.
-It performs header forensics, sender validation, authentication checks, URL and image analysis, and assigns a heuristic-based threat score to assist in phishing triage and investigation.
+<p> It performs header forensics, sender validation, authentication checks, URL and image analysis, and assigns a heuristic-based threat score to assist in phishing triage and investigation.</p>
 
-<br><br>
+<br>
 
 <div align="center">
   <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/Analysis%20Report.png" alt="EmailAnlysis Output Report" width="400">
