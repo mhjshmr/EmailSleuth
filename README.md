@@ -99,8 +99,7 @@ Follow the prompt to optionally save the analysis report.
 
 ### How It Works
 
-####Analysis Flow
-
+Analysis Flow
 1. Parse email headers and body
 2. Validate sender and authentication mechanisms
 3. Extract and analyze URLs
@@ -151,5 +150,5 @@ Follow the prompt to optionally save the analysis report.
 - RFC 7208 – SPF
 - RFC 6376 – DKIM
 - RFC 7489 – DMARC
-
+<br><br>
 **Stay vigilant. Think before you click. 🔐📧**
