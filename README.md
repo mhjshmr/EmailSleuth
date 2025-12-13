@@ -6,7 +6,7 @@ It performs header forensics, sender validation, authentication checks, URL and 
 <br><br>
 
 <div align="center">
-  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/Analyis Report.png?raw=true" alt="PassFortX Screenshot" width="400">
+  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/Analysis%20Report.png" alt="EmailAnlysis Output Report" width="400">
 </div>
 
 
