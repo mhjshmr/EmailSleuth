@@ -1,0 +1,47 @@
+From: "PayPal Support" <paypal.support@gmail.com>
+To: victim@example.com
+Subject: Urgent Account Verification Required!
+Date: Fri, 13 Dec 2025 14:30:00 +0000
+Message-ID: <1234567890@example.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY"
+
+--BOUNDARY
+Content-Type: text/plain; charset="utf-8"
+
+Dear user,
+
+Your account has been flagged for suspicious activity. Please verify your account immediately using the link below:
+
+hxxp://paypal-secure-login[.]com/verify
+
+Best regards,
+PayPal Security Team
+
+--BOUNDARY
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+<p>Dear user,</p>
+<p>Your account has been flagged for suspicious activity. Please verify your account immediately using the link below:</p>
+<a href="hxxp://paypal-secure-login[.]com/verify">Verify Now</a>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA" />
+</body>
+</html>
+
+--BOUNDARY
+Content-Type: image/png
+Content-Disposition: inline; filename="login_screenshot.png"
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAAAUA
+
+--BOUNDARY
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename="Invoice123.pdf.exe"
+Content-Transfer-Encoding: base64
+
+VGhpcyBpcyBhIHRlc3QgYmluYXJ5IGNvbnRlbnQu
+
+--BOUNDARY--
