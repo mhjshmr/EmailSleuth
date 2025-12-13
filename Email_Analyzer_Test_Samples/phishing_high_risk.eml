@@ -1,0 +1,49 @@
+From: "PayPal Security Team" <paypal.alerts@gmail.com>
+To: victim@example.com
+Reply-To: paypal-support@secure-login-paypal.xyz
+Return-Path: <mailer@random-mailer.ru>
+Subject: Urgent: Your PayPal Account Has Been Limited
+Date: Mon, 11 Dec 2025 10:32:14 +0000
+Message-ID: <8839201.129384@random-mailer.ru>
+Authentication-Results: mx.example.com;
+    spf=fail smtp.mailfrom=random-mailer.ru;
+    dkim=fail header.d=paypal.com;
+    dmarc=fail action=quarantine header.from=paypal.com
+Received-SPF: fail (example.com: domain of random-mailer.ru does not designate 192.0.2.55 as permitted sender)
+
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="boundary123"
+
+--boundary123
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Customer,
+
+We detected suspicious activity on your PayPal account.
+Your account will be suspended unless you verify your information immediately.
+
+Verify now:
+hxxps://paypaI-secure[.]xyz/login
+
+Failure to act within 24 hours will result in permanent account limitation.
+
+PayPal Security Team
+
+--boundary123
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p><strong>Important Security Alert</strong></p>
+<p>Your PayPal account has been <b>temporarily limited</b>.</p>
+
+<p>
+<a href="http://192.168.1.45/login">Verify Your Account</a>
+</p>
+
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAF/wJ+8LZ9VQAAAABJRU5ErkJggg==" />
+
+</body>
+</html>
+
+--boundary123--

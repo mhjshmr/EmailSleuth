@@ -1,0 +1,109 @@
+MIME-Version: 1.0
+Date: Thu, 11 Dec 2025 00:05:57 +0400
+Message-ID: <CABWXxBVZPQxz+w5bDkGDpjGmR0K3s-i3sz7EhxNY=Vm9JVF3sA@mail.gmail.com>
+Subject: fake
+From: Minhaj Shameer <mhjshmrahmd@gmail.com>
+To: Ayish <ayishabathool@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000008a3d0706459e8ea5"
+
+--0000000000008a3d0706459e8ea5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Return-Path: <no-reply@secure-payments.support>
+Received: from unknown (HELO mail.fake-server.com) (185.244.12.77)
+  by mx.google.com with ESMTPS id abc123
+  for <victim@example.com>;
+  Tue, 10 Dec 2025 14:22:51 +0000
+Received-SPF: softfail (google.com: domain of transitioning
+secure-payments.support does not designate 185.244.12.77 as permitted
+sender) client-ip=3D185.244.12.77;
+Authentication-Results: mx.google.com;
+  spf=3Dsoftfail (google.com: domain of secure-payments.support does not
+designate 185.244.12.77 as permitted sender);
+  dkim=3Dfail (body hash mismatch);
+  dmarc=3Dfail (p=3Dreject dis=3Dnone) header.from=3Dpaypal.com
+
+From: "PayPal Security" <support@paypal.com>
+Reply-To: security-review@secure-payments.support
+To: victim@example.com
+Subject: =E2=9A=A0 Important: Verify Your PayPal Account Immediately
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary=3D"XYZ123BOUNDARY"
+
+--XYZ123BOUNDARY
+Content-Type: text/plain; charset=3D"UTF-8"
+
+Dear Customer,
+
+We detected unusual activity in your PayPal account.
+Please verify your account immediately to avoid suspension.
+
+Verification link:
+hxxp[:]//paypa1.com.secure-login-check[.]support/verify
+
+Or use the secure IP link below:
+http://185.244.12.77/login
+
+You may also view the message here:
+https://bit.ly/4fA9pQk
+
+Regards,
+PayPal Security Team
+
+--XYZ123BOUNDARY
+Content-Type: text/html; charset=3D"UTF-8"
+
+<html>
+<body>
+<p><b>Dear Customer,</b></p>
+
+<p>We detected suspicious activity in your <b>PayPal</b> account.</p>
+
+<p>Please verify immediately:</p>
+
+<a href=3D"hxxp://paypa1.com.secure-login-check[.]support/verify">Verify
+Now</a><br><br>
+
+<p>If the button doesn't work, please use the backup link:<
+
+--0000000000008a3d0706459e8ea5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Return-Path: &lt;no-reply@secure-payments.support&gt;<br>R=
+eceived: from unknown (HELO <a href=3D"http://mail.fake-server.com">mail.fa=
+ke-server.com</a>) (185.244.12.77)<br>=C2=A0 by <a href=3D"http://mx.google=
+.com">mx.google.com</a> with ESMTPS id abc123<br>=C2=A0 for &lt;<a href=3D"=
+mailto:victim@example.com">victim@example.com</a>&gt;;<br>=C2=A0 Tue, 10 De=
+c 2025 14:22:51 +0000<br>Received-SPF: softfail (<a href=3D"http://google.c=
+om">google.com</a>: domain of transitioning secure-payments.support does no=
+t designate 185.244.12.77 as permitted sender) client-ip=3D185.244.12.77;<b=
+r>Authentication-Results: <a href=3D"http://mx.google.com">mx.google.com</a=
+>;<br>=C2=A0 spf=3Dsoftfail (<a href=3D"http://google.com">google.com</a>: =
+domain of secure-payments.support does not designate 185.244.12.77 as permi=
+tted sender);<br>=C2=A0 dkim=3Dfail (body hash mismatch);<br>=C2=A0 dmarc=
+=3Dfail (p=3Dreject dis=3Dnone) header.from=3D<a href=3D"http://paypal.com"=
+>paypal.com</a><br><br>From: &quot;PayPal Security&quot; &lt;<a href=3D"mai=
+lto:support@paypal.com">support@paypal.com</a>&gt;<br>Reply-To: security-re=
+view@secure-payments.support<br>To: <a href=3D"mailto:victim@example.com">v=
+ictim@example.com</a><br>Subject: =E2=9A=A0 Important: Verify Your PayPal A=
+ccount Immediately<br>MIME-Version: 1.0<br>Content-Type: multipart/alternat=
+ive; boundary=3D&quot;XYZ123BOUNDARY&quot;<br><br>--XYZ123BOUNDARY<br>Conte=
+nt-Type: text/plain; charset=3D&quot;UTF-8&quot;<br><br>Dear Customer,<br><=
+br>We detected unusual activity in your PayPal account.<br>Please verify yo=
+ur account immediately to avoid suspension.<br><br>Verification link:<br>hx=
+xp[:]//paypa1.com.secure-login-check[.]support/verify<br><br>Or use the sec=
+ure IP link below:<br><a href=3D"http://185.244.12.77/login">http://185.244=
+.12.77/login</a><br><br>You may also view the message here:<br><a href=3D"h=
+ttps://bit.ly/4fA9pQk">https://bit.ly/4fA9pQk</a><br><br>Regards,<br>PayPal=
+ Security Team<br><br>--XYZ123BOUNDARY<br>Content-Type: text/html; charset=
+=3D&quot;UTF-8&quot;<br><br>&lt;html&gt;<br>&lt;body&gt;<br>&lt;p&gt;&lt;b&=
+gt;Dear Customer,&lt;/b&gt;&lt;/p&gt;<br><br>&lt;p&gt;We detected suspiciou=
+s activity in your &lt;b&gt;PayPal&lt;/b&gt; account.&lt;/p&gt;<br><br>&lt;=
+p&gt;Please verify immediately:&lt;/p&gt;<br><br>&lt;a href=3D&quot;hxxp://=
+paypa1.com.secure-login-check[.]support/verify&quot;&gt;Verify Now&lt;/a&gt=
+;&lt;br&gt;&lt;br&gt;<br><br>&lt;p&gt;If the button doesn&#39;t work, pleas=
+e use the backup link:&lt;<br></div>
+
+--0000000000008a3d0706459e8ea5--

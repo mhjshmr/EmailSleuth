@@ -1,0 +1,25 @@
+From: "Tech Newsletter" <newsletter@techupdates.com>
+To: subscriber@example.com
+Subject: Weekly Tech Updates – December Edition
+Date: Sat, 20 Dec 2025 07:00:00 +0000
+Message-ID: <newsletter@techupdates.com>
+Authentication-Results: mx.example.com;
+    spf=pass;
+    dkim=pass;
+    dmarc=pass
+Received-SPF: pass
+
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<h2>This Week in Tech</h2>
+<p>Read our latest articles:</p>
+
+<a href="https://techupdates.com/article1">AI Trends</a><br>
+<a href="https://techupdates.com/article2">Cybersecurity News</a>
+
+<img src="https://techupdates.com/banner.png" />
+</body>
+</html>

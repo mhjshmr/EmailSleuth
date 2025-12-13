@@ -1,0 +1,52 @@
+From: Amazon Security <alerts@amaz0n-support.com>
+To: user@example.com
+Subject: Important: Action Required to Secure Your Amazon Account
+Return-Path: <bounce-notice@secure-amazon.com>
+Date: Tue, 10 Dec 2025 14:22:55 +0000
+Message-ID: <9834234234abcd@amaz0n-support.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+
+Authentication-Results: example.com;
+    spf=softfail (domain owner does not designate this IP as permitted sender) smtp.mailfrom=amaz0n-support.com;
+    dkim=none (no signature);
+    dmarc=fail (p=reject disallow) header.from=amaz0n-support.com
+
+Received-SPF: softfail (example.com: transitioning domain of amaz0n-support.com does not designate 185.244.12.91 as permitted sender) client-ip=185.244.12.91;
+
+Received: from unknown (185.244.12.91)
+    by mail.example.com with SMTP id 98XKSL212
+    for <user@example.com>;
+    Tue, 10 Dec 2025 14:22:55 +0000
+
+
+<html>
+  <body>
+    <p>Dear Customer,</p>
+
+    <p>We detected unusual activity on your Amazon account. For your protection,
+    we have temporarily locked your sign-in.</p>
+
+    <p>Please verify your identity to restore access:</p>
+
+    <p>
+      <a href="hxxps://amaz0n-secure-login[.]com/verify">
+        Click here to restore your account
+      </a>
+    </p>
+
+    <p>If you don't confirm within 24 hours, your account may be permanently disabled.</p>
+
+    <img src="cid:inline-image-01" alt="Amazon Login" />
+
+    <p>Thank you,<br>Amazon Security Team</p>
+  </body>
+</html>
+
+--boundary123
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-ID: <inline-image-01>
+
+iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAA...
+--boundary123--

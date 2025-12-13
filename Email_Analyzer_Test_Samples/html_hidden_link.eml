@@ -1,0 +1,23 @@
+From: "Secure Mail" <no-reply@securemail.com>
+To: user@example.com
+Subject: Verify Your Secure Mailbox
+Date: Wed, 17 Dec 2025 13:20:00 +0000
+Message-ID: <verify@securemail.com>
+Authentication-Results: mx.example.com;
+    spf=pass;
+    dkim=pass;
+    dmarc=pass
+
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Please verify your mailbox:</p>
+
+<a href="http://secure-login-mailbox.xyz/login">
+https://securemail.com/login
+</a>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+From: "University IT Services" <it-services@university.edu>
+To: student@example.com
+Subject: Scheduled Maintenance Notification
+Date: Wed, 13 Dec 2025 08:00:00 +0000
+Message-ID: <maint-2025@university.edu>
+Authentication-Results: mx.example.com;
+    spf=pass smtp.mailfrom=university.edu;
+    dkim=pass header.d=university.edu;
+    dmarc=pass header.from=university.edu
+Received-SPF: pass
+
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Student,
+
+This is to inform you of scheduled email maintenance on Friday.
+No action is required from your side.
+
+More information:
+https://www.university.edu/it/maintenance
+
+Thank you,
+University IT Services

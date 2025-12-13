@@ -1,0 +1,22 @@
+From: "Security Team" <security@service-alerts.com>
+To: user@example.com
+Subject: Account Verification Required
+Date: Fri, 19 Dec 2025 08:30:00 +0000
+Message-ID: <qrverify@service-alerts.com>
+Authentication-Results: mx.example.com;
+    spf=pass;
+    dkim=pass;
+    dmarc=pass
+
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Scan the QR code below to verify your account.</p>
+
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAF/wJ+8LZ9VQAAAABJRU5ErkJggg==" />
+
+<p>Verification required within 12 hours.</p>
+</body>
+</html>

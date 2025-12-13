@@ -1,0 +1,1478 @@
+Delivered-To: mhjshmrahmd@gmail.com
+Received: by 2002:ab4:ae47:0:b0:2ba:4ed2:1f89 with SMTP id hh7csp1001978ecb;
+        Mon, 8 Dec 2025 05:09:48 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEQz2qQHO5r4gr/cALw1od3HhzfKcVt8Vfvwc/yzsHTN2FPwm9oNGw5dFHswDpMZZHlj2PG
+X-Received: by 2002:a05:620a:17a5:b0:8b2:e70c:427a with SMTP id af79cd13be357-8b6a23befe0mr1055920985a.44.1765199388337;
+        Mon, 08 Dec 2025 05:09:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765199388; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VF/rdewCo/Y3Sd7SNMF1O/H5RYXI3O1UoWKDEeLnm1+akWzJGcZ7luOIDezHcIcFY+
+         9dW1hzpm0Q4dFyfIayae1AIvinxmeGdUMmHElmMFLMoyzQISFhc1Sd4JVNhBeG6rnAyh
+         ZQRXMBBKq26fug2MCgBvfnn67COLbsk4fFM00pn8xkeoYrQM1EtyC5pgaeeHfzCl3Shc
+         I3RjgzquoZPDCiidbNupf92UBt9P5aUEvUzgFQEeh/gzj6qMqsLs5zanjdhWChSPHjym
+         RVHEXgxbqLJDb4hPw8u7Cw6OIUIAhTsuwOEf1L7mK2ySzRn9Iq+wfPIXB4V1w1WfcShv
+         RAQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=VhQrXpNttcUKr8Y4iPw+QX4jFmeQMqoNpNTlT689+lo=;
+        fh=F4LwjbuvGjEUEb4Vg3/E73XX2SNdIDJUR4sC2WTZVrg=;
+        b=PAyBIG5J8ui6GOKATlhzgxKcXCUkuNAcNQU2j0MFys4xEFdcGW0AFPZL0rJlBqghZ6
+         mUucYJO7yi7efdF6DEjYE6IuGcAz0zRKvbZsjq57NtITQtW9W+sdoSyVLceeAo1dfP3m
+         HuaOKNiN+K4btJl41uEMqEPhqsmhiwVd13M9TPv1vVHhS5yqS9kLwHJvWB2WireFpBua
+         fhT+nkPmDYmvvOihOtUiiEcXeACIqd0RHnkL2s3VqDF3oSpu4Jbe7vo36kl/Uf0LQcu7
+         a/ruVm2A5e0ixlYw0RS6oqkhHfNMNIkRdzQiyalE2UZ25/G1hzYsZI04V3gjHdZW1408
+         rYkw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@skool.com header.s=m1 header.b=COE15whM;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=JLLwsDwU;
+       spf=pass (google.com: domain of bounces+51791150-abbc-mhjshmrahmd=gmail.com@mail.skool.com designates 149.72.44.169 as permitted sender) smtp.mailfrom="bounces+51791150-abbc-mhjshmrahmd=gmail.com@mail.skool.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=skool.com
+Return-Path: <bounces+51791150-abbc-mhjshmrahmd=gmail.com@mail.skool.com>
+Received: from o1.ptr7400.skool.com (o1.ptr7400.skool.com. [149.72.44.169])
+        by mx.google.com with ESMTPS id af79cd13be357-8b62529d9f6si1034806085a.346.2025.12.08.05.09.47
+        for <mhjshmrahmd@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Dec 2025 05:09:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+51791150-abbc-mhjshmrahmd=gmail.com@mail.skool.com designates 149.72.44.169 as permitted sender) client-ip=149.72.44.169;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@skool.com header.s=m1 header.b=COE15whM;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=JLLwsDwU;
+       spf=pass (google.com: domain of bounces+51791150-abbc-mhjshmrahmd=gmail.com@mail.skool.com designates 149.72.44.169 as permitted sender) smtp.mailfrom="bounces+51791150-abbc-mhjshmrahmd=gmail.com@mail.skool.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=skool.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=skool.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	feedback-id:from:subject:to;
+	s=m1; bh=VhQrXpNttcUKr8Y4iPw+QX4jFmeQMqoNpNTlT689+lo=;
+	b=COE15whMhT3Z/Uge5k2blbVdQ2OAIeApgo/shH//YE/uF+PJAZOdQLn40E4b1jJGKsqc
+	XDQKrDpRJIqrCo5dNqI4qwOq6jvEhSke1MduEtfmxrYso29JZQglXLbMB0Tg6XyDxYOxBA
+	byhCOiPYfZQxqhB/VkGmkLf+R+o5ECOAc=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	feedback-id:from:subject:to;
+	s=smtpapi; bh=VhQrXpNttcUKr8Y4iPw+QX4jFmeQMqoNpNTlT689+lo=;
+	b=JLLwsDwUhc5NnKq24U9jFVlCt2SP1ah6JzftyDCXIR2c2YqpBACMYb3ULDti6YQlBNeE
+	+SxKIAQJZJWbgKuNObmHJc13mm8hR1nkEmqGQKCIeu61TEk4jKjJ3R2UKb1tvEfAGOzr1t
+	aNBwArDsfxBS1sMcAR/bOR7PXCacf8w4o=
+Received: by recvd-54fbdd4785-zcjfd with SMTP id recvd-54fbdd4785-zcjfd-1-6936CE1A-60
+	2025-12-08 13:09:46.333069586 +0000 UTC m=+1786727.132420598
+Received: from NTE3OTExNTA (unknown)
+	by geopod-ismtpd-6 (SG) with HTTP
+	id My88PSxYSEiFW5YnsAfWHQ
+	Mon, 08 Dec 2025 13:09:46.300 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=ba97469d9e6a46328778ad0cdbc3271cdc5f7e79825d23a8c2d2b05a4d20
+Date: Mon, 08 Dec 2025 13:09:46 +0000 (UTC)
+From: "Global Careers Group (Skool)" <noreply@skool.com>
+Mime-Version: 1.0
+Message-ID: <My88PSxYSEiFW5YnsAfWHQ@geopod-ismtpd-6>
+Subject: 1 new notification since 4:09 pm (Dec 8, 2025)
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EYD7sBRXgTQx80qURU=2FN98gGmvz2Tom1I0DlrLNydVSgb=2FORZEljuPv9oh?=
+ =?us-ascii?Q?hFK9qutmRBNdv3xd+72y20qK7yRd4w4d18zjQ0H?=
+ =?us-ascii?Q?589iv16YaLlI=2F6wxDnYGi71BTin40QQSTauDVYj?=
+ =?us-ascii?Q?P++gCp73fM8N0q2qKSW=2Fe5q08B6XnG6MMcxUs84?=
+ =?us-ascii?Q?F9g=2FGvjTtC328GRzs1QqCeoz5v0NjLynngQrMc3?=
+ =?us-ascii?Q?=2FSP59AnKZwdQ4cU3BKhIoMBTUnpCyHUTuOkI=2FMz?=
+ =?us-ascii?Q?3=2FPYuNbbTmLpZTc3EzZZNrM5xg=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3Bn0=2F1wqYKdPmI+SecjXfzkexw5XZq85qJVoOl?=
+ =?us-ascii?Q?n8C3YWz=2F2mp6FhFOiIkITN0GVhde0zhQBUzn9Xk?=
+ =?us-ascii?Q?dD=2FFBrMXcpz84pIVEzr=2FwN7Gk4uOuW1bnolv79D?=
+ =?us-ascii?Q?NaV3+HI2nEQDF1p7qjippHunZhmhQmfbSjqnHYc?=
+ =?us-ascii?Q?jeFUa+zSaLiLR5WgFq8INKcpVBVxPgbpEGqW=2Fba?=
+ =?us-ascii?Q?vJ97eXVgukVRjvakyf7Iu6E5e7Cza5YLbYn7IQR?=
+ =?us-ascii?Q?+3yrMoBDkeb+yJqgArx3enyr6nk66fyq2fIM6Zo?=
+ =?us-ascii?Q?9D5GJbySuiFZfHEjw4OQXLNsqZgzA12PCOttT7y?=
+ =?us-ascii?Q?T1JqEd2ZIRhg=3D=3D?=
+To: Minhaj Shameer <mhjshmrahmd@gmail.com>
+X-Entity-ID: u001.YyfUs6GcaMiTWcD8cP6Peg==
+
+--ba97469d9e6a46328778ad0cdbc3271cdc5f7e79825d23a8c2d2b05a4d20
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+
+Global Careers Group
+
+( https://link.skool.com/ls/click?upn=3Du001.wK6x93jhdVos-2F3TofGJCJqYIach7=
+-2FtMhH3n-2Fh9qG9l0GnWL4PQOS-2FZ5VkS4LpRux6cLnt8iwWzMy60vV13NsmSkVAqQ6xINO8=
+4lL5vgJGcj25AcC730epr-2BJNkMe2b11hUGBGOEDRjk0X9uh69usMpBfU47CevKCj2xPbbrrAQ=
+bVlKyWmpBwUC5bK4S5yQnUp-2Bn7ZVR9P0XvxtrxvYbnxS12vq4bPvD9aAV4Fhfh1iBI-2B1TBx=
+2dtzuTT4gPjAa409NCp_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep4Tox3aje=
+zxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06hPY36uqYT=
+f59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2=
+Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOyPQTywiiR=
+kUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXgX0VOXwW9=
+pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izSe-2F5bORhg2bKwoZIlveAmYowfgJbqUtG3koGS5Hg=
+4rowHKlhlJxAPf2yWo1Yprfn-2FjVk9saNfpAKzPBiJFkM5jC-2FqhnlNWwkGxuP2vyM0W0oEFe=
+xPWZINyiqQjR7OBRrf4NLAhUQmgBoADUVLuut8zX-2FLwCaJ0HrG8xY0Ox-2FRvfA-3D-3D )
+
+*************************
+1 new notification
+*************************
+
+Since 4:09 pm (Dec 8, 2025)
+Here=E2=80=99s what you missed:
+
+  =20
+
+=20
+
+CA
+=20
+
+
+   (  )   (  )
+
+=20
+
+GC
+=20
+
+
+   (  )   (  )
+
+View Group
+( https://link.skool.com/ls/click?upn=3Du001.wK6x93jhdVos-2F3TofGJCJi41HeJj=
+B7b9VS7pSlz-2B-2Fo8HLfaKTMxF1ZQjSOsxtv1YHVBltAbfLJTVRMcC0zLndw-3D-3DqAoV_HJ=
+LmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqos=
+rI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80Z=
+pI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJ=
+UnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2=
+BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si=
+7dlFfqbc0izQEW9GVzMX6w8MWgFtaotAM0VM3vr38KGcXfbnsgGdd4l4fz4UVtbNYw9ovUYXU1I=
+38MUSZNInECTCITC6D-2FfzoM6N0P8OnI6hGdPGN2a-2FpkeybpHct-2BSzYlIqWntGH65ddqA7=
+ZGIQGd4-2B4K4huCMiFPoPub3aQaM2z-2BBpEi602RQ-3D-3D )
+
+Are we sending you too many emails?
+We=E2=80=99re bundling up all your email notifications: Hourly
+
+Change to:   Daily ( https://link.skool.com/ls/click?upn=3Du001.wK6x93jhdVo=
+s-2F3TofGJCJv2x-2FXYKi-2F266Yv7HF2lGr2OBBjlAS1ZzAix2ZOjgnAZ9yHxbm1kkZQb-2B5=
+AdPMb7h4s03905uRBpIMhUgILpBoBRy6KicZt2s6N1rl-2B2uf51XV0bG837uryS3TMJ2Zmpkei=
+I5Nb2aaDQSl8FVsTSOIeGv7gWTP4fOYj-2BLaSLiDjtrhLCdIb4ehyiEeDUUE7t2WYnSyhQtI4r=
+t2fp7K-2F32MQ-3DnCK4_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep4Tox3aj=
+ezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06hPY36uqY=
+Tf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1Bv0ayqK-=
+2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOyPQTywii=
+RkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXgX0VOXwW=
+9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izRpVK2KoJWpWAo8v2dgMh82BOq3gKQtBb1JolVUPY8=
+4FpUnxc3ilpF4czL5O-2Bm8gzo9b8eZQBLrY65iOD10p2WVag2jV2LucX4J-2FcS0Zo-2F9LJ-2=
+BeZiJX-2BrFUdp-2Fs2rKfhykO-2FM2KDrEmnnjN4CzXkySpB1XXbMRzb-2BhpQG3-2BHJNlbA-=
+3D-3D )   =E2=80=A2  Weekly ( https://link.skool.com/ls/click?upn=3Du001.wK=
+6x93jhdVos-2F3TofGJCJv2x-2FXYKi-2F266Yv7HF2lGr2OBBjlAS1ZzAix2ZOjgnAZ9yHxbm1=
+kkZQb-2B5AdPMb7h4s03905uRBpIMhUgILpBoBRy6KicZt2s6N1rl-2B2uf51XV0bG837uryS3T=
+MJ2ZmpkeiI5Nb2aaDQSl8FVsTSOIeGv7gWTP4fOYj-2BLaSLiDjtrhLCdIb4ehyiEeDUUE7t2dI=
+q0ySfYt9gq0tAl9bjyEo-3DnNfI_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep=
+4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06h=
+PY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1B=
+v0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOy=
+PQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXg=
+X0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izREBSK8ttLyAo5dHFTZvfWTpmChmwNsX6Yn=
+Cs-2BGBDpP7cZUYKAieqGG-2BDEKLSyLmrbCvyX4sroY0Yx6qDYEr-2FlNunIe9GoyknaYBgoLb=
+cF3ewMpSBxt0sknNO9cF4kJpzeMghOiQ3gECdJ6bYoiejZR6hv5IZe2xGygxhElzb3Opg-3D-3D=
+ )=20
+
+Change notification settings ( https://link.skool.com/ls/click?upn=3Du001.w=
+K6x93jhdVos-2F3TofGJCJqYIach7-2FtMhH3n-2Fh9qG9l1PI-2Fm-2BraVkdOOdLOhb-2F-2B=
+9kC6CS8L3GE-2B2twtfU-2FANqqw-3D-3DWIuN_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVc=
+ERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz=
+4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR=
+-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIt=
+a-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTf=
+Dj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izQ3ITgNo0sfSE6uV91FcDEm1=
+SD91ddFAzM12DsCnw6IMFfAkU5cPv-2FfV7RBAi6-2FPMzFliAAuGYCFQ1aVUinDXggoGT7L4iU=
+ocVQZxIP3eZpxjbW9iyP6djlpgoHnS6k1NUCQkGi1rAVhprFS9mEtkNoN3elbocoONQujHn9aku=
+jjw-3D-3D )
+
+Start your own s k o o l ( https://link.skool.com/ls/click?upn=3Du001.wK6x9=
+3jhdVos-2F3TofGJCJqYIach7-2FtMhH3n-2Fh9qG9l0GnWL4PQOS-2FZ5VkS4LpRux6cLnt8iw=
+WzMy60vV13NsmSkVAqQ6xINO84lL5vgJGcj25AcC730epr-2BJNkMe2b11hUGBGOEDRjk0X9uh6=
+9usMpBfU47CevKCj2xPbbrrAQbVlKyWmpBwUC5bK4S5yQnUp-2Bn7ZVR9P0XvxtrxvYbnxS12vq=
+4bPvD9aAV4Fhfh1iBI-2B1TBx2dtzuTT4gPjAa40itae_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2F=
+SaCgVcERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mp=
+yRpmIz4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJ=
+S8MVqR-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXF=
+AtHUIta-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2=
+t6qhTfDj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izRdylJPhZYjb9j5P9R=
+d0ecbGHeQIa6vDC-2BQxbu-2BLdttOuNeO-2Bsm1LloyAEOj9hZoNZaGopNHjuiX2UXF95YBGaE=
+ZZoTrk-2BQ6T5JsBF1MkWr-2Fwn1BG-2BKXH-2BJUY40h1x7kEZFMfoT9KXyurkqrZ2kakCnery=
+UsPk1Kll6gGnlbrWEjA-3D-3D )
+--ba97469d9e6a46328778ad0cdbc3271cdc5f7e79825d23a8c2d2b05a4d20
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+  lang=3D"en"
+  data-editor-version=3D"2"
+  class=3D"sg-campaigns"
+  xmlns=3D"http://www.w3.org/1999/xhtml"
+  style=3D"
+    font-family: Roboto, sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  "
+>
+  <head
+    style=3D"
+      font-family: Roboto, sans-serif;
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    "
+  >
+    <meta
+      http-equiv=3D"Content-Type"
+      content=3D"text/html; charset=3Dutf-8"
+      style=3D"
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      "
+    />
+    <meta
+      name=3D"viewport"
+      content=3D"width=3Ddevice-width, initial-scale=3D1"
+      style=3D"
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      "
+    />
+    <meta
+      http-equiv=3D"X-UA-Compatible"
+      content=3D"IE=3DEdge"
+      style=3D"
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      "
+    />
+    <link
+      href=3D"https://fonts.googleapis.com/css?family=3DRoboto:400,500,600"
+      rel=3D"stylesheet"
+      type=3D"text/css"
+      style=3D"
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      "
+    />
+    <style
+      type=3D"text/css"
+      style=3D"
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      "
+    >
+      * {
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        color: #202124;
+      }
+
+      table {
+        border-spacing: 0px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body
+    style=3D"
+      font-family: Roboto, sans-serif;
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+      color: #202124;
+    "
+  >
+    <div
+      style=3D"
+        width: 100%;
+        table-layout: fixed;
+        background-color: #f8f7f5;
+        padding: 32px 0px 100px 0px;
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+      "
+    >
+      <div
+        style=3D"
+          max-width: 659px;
+          width: 100%;
+          margin: auto;
+          font-family: Roboto, sans-serif;
+          box-sizing: border-box;
+          padding: 0px;
+        "
+      >
+        <table
+          role=3D"presentation"
+          style=3D"
+            width: 100%;
+            margin: auto 0;
+            max-width: 659px;
+            border-spacing: 0px;
+            padding: 0px 8px;
+            font-family: Roboto, sans-serif;
+            box-sizing: border-box;
+          "
+          align=3D"center"
+        >
+          <tr
+            style=3D"
+              font-family: Roboto, sans-serif;
+              box-sizing: border-box;
+              margin: 0px;
+              padding: 0px;
+            "
+          >
+            <td
+              style=3D"
+                font-family: Roboto, sans-serif;
+                box-sizing: border-box;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <table
+                role=3D"presentation"
+                width=3D"100%"
+                style=3D"
+                  border-spacing: 0px;
+                  font-family: Roboto, sans-serif;
+                  box-sizing: border-box;
+                  margin: 0px;
+                  padding: 0px;
+                "
+              >
+                <!-- header -->
+                <tr
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                >
+                  <td
+                    style=3D"
+                      font-family: Roboto, sans-serif;
+                      box-sizing: border-box;
+                      margin: 0px;
+                      padding: 0px;
+                    "
+                  >
+                    <table
+                      role=3D"presentation"
+                      border=3D"0"
+                      cellpadding=3D"0"
+                      cellspacing=3D"0"
+                      width=3D"100%"
+                      style=3D"
+                        font-family: Roboto, sans-serif;
+                        box-sizing: border-box;
+                        margin: 0px;
+                        padding: 0px;
+                        border-spacing: 0px;
+                      "
+                    >
+                      <tr
+                        style=3D"
+                          font-family: Roboto, sans-serif;
+                          box-sizing: border-box;
+                          margin: 0px;
+                          padding: 0px;
+                        "
+                      >
+                        <td
+                          align=3D"left"
+                          style=3D"
+                            font-family: Roboto, sans-serif;
+                            box-sizing: border-box;
+                            margin: 0px;
+                            padding: 0px;
+                          "
+                        >
+                          <table
+                            role=3D"presentation"
+                            border=3D"0"
+                            cellpadding=3D"0"
+                            cellspacing=3D"0"
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                              border-spacing: 0px;
+                            "
+                          >
+                            <tr
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            >
+                              <td
+                                style=3D"
+                                  font-family: Roboto, sans-serif;
+                                  box-sizing: border-box;
+                                  margin: 0px;
+                                  padding: 0px;
+                                "
+                              >
+                                <div
+                                  style=3D"
+                                    font-family: Roboto, sans-serif;
+                                    box-sizing: border-box;
+                                    margin: 0px;
+                                    padding: 0px;
+                                  "
+                                >
+                                  <!--[if mso]>
+                                    <v:roundrect
+                                      xmlns:v=3D"urn:schemas-microsoft-com:=
+vml"
+                                      xmlns:w=3D"urn:schemas-microsoft-com:=
+office:word"
+                                      style=3D"
+                                        height: 24px;
+                                        v-text-anchor: middle;
+                                        width: 24px;
+                                      "
+                                      arcsize=3D"20.8%"
+                                      stroke=3D"f"
+                                      fill=3D"t"
+                                    >
+                                      <v:fill
+                                        type=3D"frame"
+                                        src=3D"https://assets.skool.com/f/d=
+55c2a507c0647208625aa5fb0e4c823/351271799dbd43eb8031738a71c92be9a0313b4cf34=
+c456f956bd0f255de5066.jpg"
+                                        color=3D"#556270"
+                                      />
+                                      <w:anchorlock />
+                                      <center
+                                        style=3D"
+                                          color: rgba(0, 0, 0, 0);
+                                          font-family: sans-serif;
+                                          font-size: 13px;
+                                          font-weight: bold;
+                                        "
+                                      ></center>
+                                    </v:roundrect>
+                                  <![endif]-->
+                                  <!--[if !mso]><!-->
+                                  <img
+                                    alt=3D"group image"
+                                    src=3D"https://assets.skool.com/f/d55c2=
+a507c0647208625aa5fb0e4c823/351271799dbd43eb8031738a71c92be9a0313b4cf34c456=
+f956bd0f255de5066.jpg"
+                                    height=3D"24"
+                                    width=3D"24"
+                                    style=3D"
+                                      border-radius: 5px;
+                                      color: rgba(0, 0, 0, 0);
+                                      display: block;
+                                      font-family: sans-serif;
+                                      font-size: 13px;
+                                      font-weight: bold;
+                                      line-height: 24px;
+                                      text-align: center;
+                                      text-decoration: none;
+                                      width: 24px;
+                                      -webkit-text-size-adjust: none;
+                                      mso-hide: all;
+                                      box-sizing: border-box;
+                                      margin: 0px;
+                                      padding: 0px;
+                                    "
+                                  />
+                                  <!--<![endif]-->
+                                </div>
+                              </td>
+                              <td
+                                style=3D"
+                                  padding: 0px 0px 0px 6px;
+                                  font-family: Roboto, sans-serif;
+                                  box-sizing: border-box;
+                                  margin: 0px;
+                                "
+                              >
+                                <div
+                                  style=3D"
+                                    font-weight: 500;
+                                    font-size: 16px;
+                                    line-height: 100%;
+                                    font-family: Roboto, sans-serif;
+                                    box-sizing: border-box;
+                                    margin: 0px;
+                                    padding: 0px;
+                                  "
+                                >
+                                  Global Careers Group
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td
+                          align=3D"right"
+                          style=3D"
+                            font-family: Roboto, sans-serif;
+                            box-sizing: border-box;
+                            margin: 0px;
+                            padding: 0px;
+                          "
+                        >
+                          <a href=3D"https://link.skool.com/ls/click?upn=3D=
+u001.wK6x93jhdVos-2F3TofGJCJqYIach7-2FtMhH3n-2Fh9qG9l0GnWL4PQOS-2FZ5VkS4LpR=
+ux6cLnt8iwWzMy60vV13NsmX7JmmIGnnR-2BI-2BCOnj53VQbqW0DvdE-2BQJ-2FnqYwLp0unsU=
+iIenBGpFtybh9FsjUwww0HdRVZlHZenYus8NkUNzkOz2LNxvy4cVAqHDnCHBk-2FTB-2B2BW-2F=
+3uz3yVsaj-2F1fyQ3-2FemWXfRNruYz3DhC-2BK4wPc-3DxY5u_HJLmhJZskZ9n-2BGgBIx6qxO=
+qwL-2FSaCgVcERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdI=
+vYd2mpyRpmIz4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8Ywufr=
+X1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5C=
+ID1oXFAtHUIta-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnv=
+brhuA2t6qhTfDj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izRXdIFXiZbPL=
+EgTZUVnVuc0kUzRoHrsuTlG2Kc1m9AXZjRe6vOsif31aUtRpX7917Q5BlsESuglFrVxfSypjX5L=
+LsWff3XZsWL6yh-2BQ8BQe46QvixxV-2FP3q052sTb2Xoh-2FIMfEcgtIfIls-2Bhg02MHJecqB=
+nQGc8qhbIEYMSBQWQ9Q-3D-3D">
+                            <img
+                              width=3D"70"
+                              height=3D"24"
+                              src=3D"https://assets.skool.com/skool/3824c26=
+a881e434fb0710f1c257ef501.png"
+                              alt=3D"skool logo"
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            />
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr
+                  height=3D"40"
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                ></tr>
+                <!-- title -->
+                <tr
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                >
+                  <td
+                    style=3D"
+                      font-family: Roboto, sans-serif;
+                      box-sizing: border-box;
+                      margin: 0px;
+                      padding: 0px;
+                    "
+                  >
+                    <table
+                      role=3D"presentation"
+                      border=3D"0"
+                      cellpadding=3D"0"
+                      cellspacing=3D"0"
+                      width=3D"100%"
+                      style=3D"
+                        font-family: Roboto, sans-serif;
+                        box-sizing: border-box;
+                        margin: 0px;
+                        padding: 0px;
+                        border-spacing: 0px;
+                      "
+                    >
+                      <tr
+                        style=3D"
+                          font-family: Roboto, sans-serif;
+                          box-sizing: border-box;
+                          margin: 0px;
+                          padding: 0px;
+                        "
+                      >
+                        <td
+                          style=3D"
+                            font-family: Roboto, sans-serif;
+                            box-sizing: border-box;
+                            margin: 0px;
+                            padding: 0px;
+                          "
+                        >
+                          <h1
+                            style=3D"
+                              font-weight: 500;
+                              font-size: 18px;
+                              line-height: 24px;
+                              margin: 0px 0px 8px 0px;
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              padding: 0px;
+                            "
+                          >
+                            1 new notification
+                          </h1>
+                          <div
+                            style=3D"
+                              font-size: 14px;
+                              line-height: 21px;
+                              color: #767676;
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            Since 4:09 pm (Dec 8, 2025)
+                          </div>
+                          <div
+                            style=3D"
+                              font-size: 14px;
+                              line-height: 21px;
+                              color: #767676;
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            Here=E2=80=99s what you missed:
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr
+                  height=3D"32"
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                ></tr>
+                <!-- card -->
+                <tr
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                >
+                  <td
+                    style=3D"
+                      font-family: Roboto, sans-serif;
+                      box-sizing: border-box;
+                      margin: 0px;
+                      padding: 0px;
+                    "
+                  >
+                    <table
+                      role=3D"presentation"
+                      border=3D"0"
+                      cellpadding=3D"0"
+                      cellspacing=3D"0"
+                      width=3D"100%"
+                      style=3D"
+                        font-family: Roboto, sans-serif;
+                        box-sizing: border-box;
+                        margin: 0px;
+                        padding: 0px;
+                        border-spacing: 0px;
+                      "
+                    >
+                      <tr
+                        style=3D"
+                          font-family: Roboto, sans-serif;
+                          box-sizing: border-box;
+                          margin: 0px;
+                          padding: 0px;
+                        "
+                      >
+                        <td
+                          width=3D"100%"
+                          style=3D"
+                            -webkit-border-radius: 10px;
+                            -moz-border-radius: 10px;
+                            border-radius: 10px;
+                            padding: 0px 16px;
+                            border: 1px solid #e4e4e4;
+                            background: white;
+                            font-size: 15px;
+                            line-height: 22px;
+                            font-family: Roboto, sans-serif;
+                            box-sizing: border-box;
+                            margin: 0px;
+                          "
+                        >
+                          <table
+                            role=3D"presentation"
+                            border=3D"0"
+                            cellpadding=3D"0"
+                            cellspacing=3D"0"
+                            width=3D"100%"
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                              border-spacing: 0px;
+                            "
+                          >
+                            =20
+                            <tr
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            >
+                              <td
+                                style=3D"
+                                  padding: 16px 0px;
+                                  font-family: Roboto, sans-serif;
+                                  box-sizing: border-box;
+                                  margin: 0px;
+                                "
+                              >
+                                <table
+                                  role=3D"presentation"
+                                  style=3D"
+                                    font-family: Roboto, sans-serif;
+                                    box-sizing: border-box;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    border-spacing: 0px;
+                                  "
+                                >
+                                  <tr
+                                    style=3D"
+                                      font-family: Roboto, sans-serif;
+                                      box-sizing: border-box;
+                                      margin: 0px;
+                                      padding: 0px;
+                                    "
+                                  >
+                                    <td
+                                      style=3D"
+                                        font-size: 14px;
+                                        padding: 0px 0px 12px 0px;
+                                        line-height: 21px;
+                                        font-family: Roboto, sans-serif;
+                                        box-sizing: border-box;
+                                        margin: 0px;
+                                      "
+                                    >
+                                      <table
+                                        role=3D"presentation"
+                                        style=3D"
+                                          font-family: Roboto, sans-serif;
+                                          box-sizing: border-box;
+                                          margin: 0px;
+                                          padding: 0px;
+                                          border-spacing: 0px;
+                                        "
+                                      >
+                                        <tr
+                                          style=3D"
+                                            font-family: Roboto, sans-serif=
+;
+                                            box-sizing: border-box;
+                                            margin: 0px;
+                                            padding: 0px;
+                                          "
+                                        >
+                                          <td
+                                            style=3D"
+                                              font-family: Roboto, sans-ser=
+if;
+                                              box-sizing: border-box;
+                                              margin: 0px;
+                                              padding: 0px;
+                                            "
+                                          >
+                                            <div
+                                              style=3D"
+                                                font-family: Roboto, sans-s=
+erif;
+                                                box-sizing: border-box;
+                                                margin: 0px;
+                                                padding: 0px;
+                                              "
+                                            >
+                                              <!--[if mso]>
+                                                <v:roundrect
+                                                  xmlns:v=3D"urn:schemas-mi=
+crosoft-com:vml"
+                                                  xmlns:w=3D"urn:schemas-mi=
+crosoft-com:office:word"
+                                                  style=3D"
+                                                    height: 40px;
+                                                    v-text-anchor: middle;
+                                                    width: 40px;
+                                                  "
+                                                  arcsize=3D"50%"
+                                                  stroke=3D"f"
+                                                  fill=3D"t"
+                                                >
+                                                  <v:fill
+                                                    type=3D"frame"
+                                                    src=3D"https://assets.s=
+kool.com/f/946c898bcadd40dfab012e087e98a8fc/7f25841f578244ba8f32ed734827582=
+f3d150d3f4b4541af94d54924893e02e8-md.jpg"
+                                                    color=3D"#556270"
+                                                  />
+                                                  <w:anchorlock />
+                                                  <center
+                                                    style=3D"
+                                                      color: rgba(0, 0, 0, =
+0);
+                                                      font-family: sans-ser=
+if;
+                                                      font-size: 13px;
+                                                      font-weight: bold;
+                                                    "
+                                                  ></center>
+                                                </v:roundrect>
+                                              <![endif]-->
+                                              <!--[if !mso]><!-->
+                                              <img
+                                                alt=3D"user image"
+                                                src=3D"https://assets.skool=
+.com/f/946c898bcadd40dfab012e087e98a8fc/7f25841f578244ba8f32ed734827582f3d1=
+50d3f4b4541af94d54924893e02e8-md.jpg"
+                                                height=3D"40"
+                                                width=3D"40"
+                                                style=3D"background-image: =
+url(https://assets.skool.com/f/946c898bcadd40dfab012e087e98a8fc/7f25841f578=
+244ba8f32ed734827582f3d150d3f4b4541af94d54924893e02e8-md.jpg);background-si=
+ze: cover;border-radius: 50%;color: rgba(0,0,0,0);display: block;font-famil=
+y: sans-serif;font-size: 13px;font-weight: bold;line-height: 40px;text-alig=
+n: center;text-decoration: none;width: 40px;-webkit-text-size-adjust: none;=
+mso-hide: all;box-sizing: border-box;margin: 0px;padding: 0px;"
+                                              />
+                                              <!--<![endif]-->
+                                            </div>
+                                          </td>
+                                          <td
+                                            style=3D"
+                                              padding: 0px 0px 0px 12px;
+                                              font-family: Roboto, sans-ser=
+if;
+                                              box-sizing: border-box;
+                                              margin: 0px;
+                                            "
+                                          >
+                                            <div
+                                              style=3D"
+                                                font-family: Roboto, sans-s=
+erif;
+                                                box-sizing: border-box;
+                                                margin: 0px;
+                                                padding: 0px;
+                                              "
+                                            >
+                                              <span
+                                                style=3D"
+                                                  font-weight: 500;
+                                                  font-family: Roboto,
+                                                    sans-serif;
+                                                  box-sizing: border-box;
+                                                  margin: 0px;
+                                                  padding: 0px;
+                                                "
+                                                >James Govey</span
+                                              >
+                                              (following) posted:
+                                            </div>
+                                            <div
+                                              style=3D"
+                                                font-family: Roboto, sans-s=
+erif;
+                                                box-sizing: border-box;
+                                                margin: 0px;
+                                                padding: 0px;
+                                              "
+                                            >
+                                              <span
+                                                style=3D"
+                                                  font-weight: 500;
+                                                  color: #202124;
+                                                  font-family: Roboto,
+                                                    sans-serif;
+                                                  box-sizing: border-box;
+                                                  margin: 0px;
+                                                  padding: 0px;
+                                                "
+                                                >=F0=9F=92=BC Finance Manag=
+er Internship =E2=80=93 Dubai, DIFC</span
+                                              >
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    style=3D"
+                                      font-family: Roboto, sans-serif;
+                                      box-sizing: border-box;
+                                      margin: 0px;
+                                      padding: 0px;
+                                    "
+                                  >
+                                    <td
+                                      style=3D"
+                                        font-size: 15px;
+                                        line-height: 22px;
+                                        color: #202124;
+                                        padding: 0px 0px 12px 0px;
+                                        font-family: Roboto, sans-serif;
+                                        box-sizing: border-box;
+                                        margin: 0px;
+                                      "
+                                    >
+                                      Hi guys, we have an amazing opportuni=
+ty attached below - let me know if anyone is interested!                   =
+                  </td>
+                                  </tr>
+                                  <tr
+                                    style=3D"
+                                      font-family: Roboto, sans-serif;
+                                      box-sizing: border-box;
+                                      margin: 0px;
+                                      padding: 0px;
+                                    "
+                                  >
+                                    <td
+                                      style=3D"
+                                        font-family: Roboto, sans-serif;
+                                        box-sizing: border-box;
+                                        margin: 0px;
+                                        padding: 0px;
+                                      "
+                                    >
+                                      <a
+                                        href=3D"https://link.skool.com/ls/c=
+lick?upn=3Du001.wK6x93jhdVos-2F3TofGJCJi41HeJjB7b9VS7pSlz-2B-2Fo8HLfaKTMxF1=
+ZQjSOsxtv1YjzCwFRZlcZZoRh24yncQuN93ZUN0EfQ3-2FoCcfFf9-2FlCyvEWCLnsMqC0Lv0mp=
+A2fhTxpW9taKdpTotVvbaW2x2zTUCmyDu7NJZyrePmOvogKJfvd2zQ27moCszdDfUodK5WMu_HJ=
+LmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqos=
+rI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80Z=
+pI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJ=
+UnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2=
+BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si=
+7dlFfqbc0izSqxuikd2NwqbSPCN1t2U2zDqBqu0iKx1fjL6RovmQTIMi5dlwsY-2B5cseoB8ARD=
+1Xn1-2BHimDSgJqTXKfiM9Qv10UHF37qSRrEOk-2Fua9BnLWK07J-2F4FCiXJJPAb9QsHVzS4cH=
+wB8kN1ECsQPkhTV2SgzRri0KMdcMy4lQaCawgqOXg-3D-3D"
+                                        target=3D"_blank"
+                                        style=3D"
+                                          color: #3d68cf;
+                                          font-size: 15px;
+                                          font-family: Roboto, sans-serif;
+                                          box-sizing: border-box;
+                                          margin: 0px;
+                                          padding: 0px;
+                                          text-decoration: none;
+                                        "
+                                        >View post</a
+                                      >
+                                      <a
+                                        href=3D""
+                                        target=3D"_blank"
+                                        style=3D"
+                                          color: #767676;
+                                          font-size: 15px;
+                                          font-family: Roboto, sans-serif;
+                                          box-sizing: border-box;
+                                          margin: 0px;
+                                          padding: 0px;
+                                          text-decoration: none;
+                                        "
+                                        ></a
+                                      >
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+=20
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr
+                  height=3D"32"
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                ></tr>
+                <!-- button -->
+                <tr
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                >
+                  <td
+                    style=3D"
+                      font-family: Roboto, sans-serif;
+                      box-sizing: border-box;
+                      margin: 0px;
+                      padding: 0px;
+                    "
+                  >
+                    <table
+                      role=3D"presentation"
+                      border=3D"0"
+                      cellpadding=3D"0"
+                      cellspacing=3D"0"
+                      width=3D"100%"
+                      style=3D"
+                        font-family: Roboto, sans-serif;
+                        box-sizing: border-box;
+                        margin: 0px;
+                        padding: 0px;
+                        border-spacing: 0px;
+                      "
+                    >
+                      <tr
+                        border=3D"0"
+                        style=3D"
+                          font-family: Roboto, sans-serif;
+                          box-sizing: border-box;
+                          margin: 0px;
+                          padding: 0px;
+                        "
+                      >
+                        <td
+                          border=3D"0"
+                          style=3D"
+                            font-family: Roboto, sans-serif;
+                            box-sizing: border-box;
+                            margin: 0px;
+                            padding: 0px;
+                          "
+                        >
+                          <div
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            <!--[if mso]>
+                              <v:roundrect
+                                xmlns:v=3D"urn:schemas-microsoft-com:vml"
+                                xmlns:w=3D"urn:schemas-microsoft-com:office=
+:word"
+                                href=3D"https://www.skool.com/global-career=
+s-group"
+                                style=3D"
+                                  height: 48px;
+                                  v-text-anchor: middle;
+                                  width: 161px;
+                                "
+                                arcsize=3D"12%"
+                                strokecolor=3D"#D1D1D1"
+                                fillcolor=3D"#f8D481"
+                              >
+                                <w:anchorlock />
+                                <center
+                                  style=3D"
+                                    color: #202124;
+                                    font-family: sans-serif;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                  "
+                                >
+                                  VIEW GROUP
+                                </center>
+                              </v:roundrect>
+                            <![endif]-->
+                            <a
+                              href=3D"https://link.skool.com/ls/click?upn=
+=3Du001.wK6x93jhdVos-2F3TofGJCJi41HeJjB7b9VS7pSlz-2B-2Fo8HLfaKTMxF1ZQjSOsxt=
+v1YHVBltAbfLJTVRMcC0zLndw-3D-3DAyIl_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERq=
+ps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me=
+05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2B=
+ChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2=
+BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj5=
+7Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izS95i8Bbr4jvYW77xYYAZ9zigx0=
+UJpns62kJnscFmzbhlh0dHWDWI3KTWEbx74fOL0wiuRe7avDpe8RJbVfCOrZrnKEVR-2B5ZTaRY=
+FW81C4-2F3fUj8jAhXPzVK0PPtUj3x0oOE-2FXmwHkMM3-2B5ABfMpvI3JHQS2wrIntBPefp0mp=
+RGyA-3D-3D"
+                              target=3D"_blank"
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                                text-decoration: none;
+                              "
+                            >
+                              <div
+                                style=3D"
+                                  width: 161px;
+                                  padding: 15px 0px;
+                                  color: #202124;
+                                  background-color: #f8d481;
+                                  border-radius: 4px;
+                                  font-size: 15px;
+                                  letter-spacing: 0.5px;
+                                  font-weight: 600;
+                                  text-transform: uppercase;
+                                  text-align: center;
+                                  mso-hide: all;
+                                  font-family: Roboto, sans-serif;
+                                  box-sizing: border-box;
+                                  margin: 0px;
+                                "
+                              >
+                                View Group
+                              </div>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <!-- footer -->
+                <tr
+                  height=3D"40"
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                ></tr>
+                <tr
+                  style=3D"
+                    font-family: Roboto, sans-serif;
+                    box-sizing: border-box;
+                    margin: 0px;
+                    padding: 0px;
+                  "
+                >
+                  <td
+                    style=3D"
+                      font-family: Roboto, sans-serif;
+                      box-sizing: border-box;
+                      margin: 0px;
+                      padding: 0px;
+                    "
+                  >
+                    <table
+                      role=3D"presentation"
+                      border=3D"0"
+                      cellpadding=3D"0"
+                      cellspacing=3D"0"
+                      width=3D"100%"
+                      style=3D"
+                        font-family: Roboto, sans-serif;
+                        box-sizing: border-box;
+                        margin: 0px;
+                        padding: 0px;
+                        border-spacing: 0px;
+                      "
+                    >
+                      <tr
+                        border=3D"0"
+                        style=3D"
+                          font-family: Roboto, sans-serif;
+                          box-sizing: border-box;
+                          margin: 0px;
+                          padding: 0px;
+                        "
+                      >
+                        <td
+                          border=3D"0"
+                          style=3D"
+                            font-size: 14px;
+                            line-height: 21px;
+                            color: #767676;
+                            font-family: Roboto, sans-serif;
+                            box-sizing: border-box;
+                            margin: 0px;
+                            padding: 0px;
+                          "
+                        >
+                          <div
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            Are we sending you too many emails?
+                          </div>
+                          <div
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            We=E2=80=99re bundling up all your email notifi=
+cations:
+                            Hourly<br
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            /><br
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            />
+                          </div>
+                          <div
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            <span
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                              >Change to:</span
+                            >
+                                                         <a
+                              href=3D"https://link.skool.com/ls/click?upn=
+=3Du001.wK6x93jhdVos-2F3TofGJCJv2x-2FXYKi-2F266Yv7HF2lGr2OBBjlAS1ZzAix2ZOjg=
+nAZ9yHxbm1kkZQb-2B5AdPMb7h4s03905uRBpIMhUgILpBoCrkso-2FllqvOBD5320g0yoxK28z=
+HOGpH5kXSkZyIxKV4DmtfBi3ObENC48ZzL5yDEOfcgaGp2XxxUeDx4HMuDcAfCf8Ut6QwVSlzZO=
+YtesD1Q-3D-3DsDzS_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep4Tox3ajezx=
+QSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06hPY36uqYTf5=
+9SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2Fy=
+u7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOyPQTywiiRkU=
+CrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXgX0VOXwW9pA=
+J-2BgirpJLKUk0iTu9si7dlFfqbc0izRyk3RdFO8of3TNOGEGmz2IQtNqnAZTc1RhIUDWBYoTQG=
+HX0eEEReQfDRCFx7q2BnoM9d-2BTtsmYTbeyYWueoANWl-2F3jLkBHeRsJTQXI3geBCRu4a8b4v=
+62-2BSueyTWOyO3Cq-2F-2F8PFJxm73n-2FY6RvB4NKhlzI9irmuskYTbcsc6S9hA-3D-3D"
+                              style=3D"
+                                font-size: 14px;
+                                line-height: 21px;
+                                color: #767676;
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                                text-decoration: none;
+                              "
+                              >Daily</a
+                            >
+=20
+                            <span
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            >
+                              =E2=80=A2</span
+                            >
+                            <a
+                              href=3D"https://link.skool.com/ls/click?upn=
+=3Du001.wK6x93jhdVos-2F3TofGJCJv2x-2FXYKi-2F266Yv7HF2lGr2OBBjlAS1ZzAix2ZOjg=
+nAZ9yHxbm1kkZQb-2B5AdPMb7h4s03905uRBpIMhUgILpBoCrkso-2FllqvOBD5320g0yoxK28z=
+HOGpH5kXSkZyIxKV4DmtfBi3ObENC48ZzL5yDEOfcgaGp2XxxUeDx4HMuDcAVnqJh0mrwjnisp4=
+CMxSNHA-3D-3D7Gzi_HJLmhJZskZ9n-2BGgBIx6qxOqwL-2FSaCgVcERqps7dw7Ep4Tox3ajezx=
+QSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd2mpyRpmIz4Me05VhX06hPY36uqYTf5=
+9SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2Fy=
+u7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1oXFAtHUIta-2BIWECvOyPQTywiiRkU=
+CrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrhuA2t6qhTfDj57Z-2FbXgX0VOXwW9pA=
+J-2BgirpJLKUk0iTu9si7dlFfqbc0izRdUVD605-2F4aPztwu4s0cJsvswud1tayRg80F1DbcqP=
+E38POAEtgmCkgizn9qnFP5jJcZJJmGhQviOjmcBGL-2BzkOStPmEkpM-2FyPKtfkTLRQEEBGx36=
+3BrEurQu251rb4YZ189NjEk68A39wO7h35zyS3G7eQkHe-2Fv6EOKTmbXjbiQ-3D-3D"
+                              style=3D"
+                                font-size: 14px;
+                                line-height: 21px;
+                                color: #767676;
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                                text-decoration: none;
+                              "
+                              >Weekly</a
+                            >
+                          </div>
+                          <div
+                            style=3D"
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                            "
+                          >
+                            <br
+                              style=3D"
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                              "
+                            />
+                            <a
+                              href=3D"https://link.skool.com/ls/click?upn=
+=3Du001.wK6x93jhdVos-2F3TofGJCJqYIach7-2FtMhH3n-2Fh9qG9l1PI-2Fm-2BraVkdOOdL=
+Ohb-2F-2B9kC6CS8L3GE-2B2twtfU-2FANqqw-3D-3DASbt_HJLmhJZskZ9n-2BGgBIx6qxOqwL=
+-2FSaCgVcERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIvYd=
+2mpyRpmIz4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX1U=
+BzJS8MVqR-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CID1=
+oXFAtHUIta-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvbrh=
+uA2t6qhTfDj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izToYOyzEWzC-2FO=
+o-2FbwcRuUNeOc3zdwvlWBMjF3nE03mrmpmV619QqYVASSvga082wXC0-2FxX-2Bwi6-2FF2ybT=
+AIaskooPPCHsjXMCXvlQI4WNPPXkzHisfcW-2FCMFrvU3nkh7hbvKfDdIVbN5HnLYuM3i218cgT=
+LSX7829I2n1nKZpNrNDw-3D-3D"
+                              target=3D"_blank"
+                              style=3D"
+                                font-size: 14px;
+                                line-height: 21px;
+                                color: #767676;
+                                font-family: Roboto, sans-serif;
+                                box-sizing: border-box;
+                                margin: 0px;
+                                padding: 0px;
+                                text-decoration: none;
+                              "
+                              >Change notification settings</a
+                            >
+                          </div>
+                          <br />
+                          <a
+                            href=3D"https://link.skool.com/ls/click?upn=3Du=
+001.wK6x93jhdVos-2F3TofGJCJqYIach7-2FtMhH3n-2Fh9qG9l0GnWL4PQOS-2FZ5VkS4LpRu=
+x6cLnt8iwWzMy60vV13NsmX7JmmIGnnR-2BI-2BCOnj53VQbqW0DvdE-2BQJ-2FnqYwLp0unsUi=
+IenBGpFtybh9FsjUwww0HdRVZlHZenYus8NkUNzkOz2LNxvy4cVAqHDnCHBk-2FTB-2B2BW-2F3=
+uz3yVsaj-2F1fyQ3-2FemWXfRNruYz3DhC-2BK4wPc-3D-r18_HJLmhJZskZ9n-2BGgBIx6qxOq=
+wL-2FSaCgVcERqps7dw7Ep4Tox3ajezxQSJ-2FtLe45vqEyKIqosrI40vK3WpAJiGIXXITygdIv=
+Yd2mpyRpmIz4Me05VhX06hPY36uqYTf59SgqNxdDO4Uuw7aQu80ZpI-2BR-2BFgvi-2B8YwufrX=
+1UBzJS8MVqR-2BChNLtG1Bv0ayqK-2Fyu7h7xh0G0mA6HU30S8GJUnWr8ZczVL2ziqKGqM5j5CI=
+D1oXFAtHUIta-2BIWECvOyPQTywiiRkUCrRlmD-2BQdCpvPArt-2BfBrW6DLDmoR5ncOjmbZnvb=
+rhuA2t6qhTfDj57Z-2FbXgX0VOXwW9pAJ-2BgirpJLKUk0iTu9si7dlFfqbc0izSB5ChV9v96JH=
+51s6nOTnmsIdNunYqzh8mHp1U0YC4d3P1EX1ZQoAbyVmqP8O8M9nN4teZtvsG4aPxDXm-2BnimL=
+27uWeyz-2FmRn2efiGag-2F3-2BwL8ypq4A0dtkHKdLeffIG79qxYyHAPrta1M4kNQY4cEpGbhI=
+RCvOkOF6NKmBbVDMFQ-3D-3D"
+                            style=3D"
+                              font-size: 14px;
+                              line-height: 21px;
+                              color: #767676;
+                              font-family: Roboto, sans-serif;
+                              box-sizing: border-box;
+                              margin: 0px;
+                              padding: 0px;
+                              text-decoration: none;
+                            "
+                            >Start your own
+                            <span style=3D"color: #263397; font-weight: bol=
+d"
+                              >s</span
+                            ><span style=3D"color: #d3513e; font-weight: bo=
+ld"
+                              >k</span
+                            ><span style=3D"color: #e0b467; font-weight: bo=
+ld"
+                              >o</span
+                            ><span style=3D"color: #6bb7ee; font-weight: bo=
+ld"
+                              >o</span
+                            ><span style=3D"color: #c45946; font-weight: bo=
+ld"
+                              >l</span
+                            >
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <img src=3D"https://link.skool.com/wf/open?upn=3Du001.KSefxamqCSEFXMDrXso=
+cTxGUJjwYbacPo9GgWerB-2B4L4lXTouXjLVWFzBRdffBj4UVpHiV8VYSpPBM1n-2BZtKNwv7i6=
+QbW3sUvDDH6Z2fOAoYv6nKd2FufGYFZ2Zx1u-2F1mTjxektFL97-2Fy-2BSoKWLp6b1PNzR-2FY=
+ce06-2BP8lrfyMHyh-2BG7p7rgxUSY0ClFF88VpgWoyxUoFqQ5DYiXz-2Bula9zmdCDzsCSd2iV=
+46Kl-2Fmqmz-2FcJx6Wnz1s0WgD6j2WkxkLAnm135E7Dlmff8dEiw5mG4hqPFqei0gaYblrjrNE=
+jFbC2VSDWgTYLLmFcjeFAdMoCnB2zZ-2FyNc9Yc07hkxWWGXpcSQYwZgh3aWR1zfg1Dp5Glw7BN=
+y35BeWVrqlEZabukfjQ1DM2H9jlE1Nj4sJNX8dJrxPf5iN75021pToY-2Fom8yU1e1-2Bb3VG94=
+IxG7nxjfFXUC1HTyUD9H982Xa-2Fxz1NH8XWZIwW-2Fsk0uki6wL1KPWL5yRuvUm812lQuUD2dm=
+O8-2BJB-2BZIVQhAJvk1UbSrXA-3D-3D" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0 !=
+important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0=
+ !important;margin-left:0 !important;padding-top:0 !important;padding-botto=
+m:0 !important;padding-right:0 !important;padding-left:0 !important;"/></bo=
+dy>
+</html>
+
+--ba97469d9e6a46328778ad0cdbc3271cdc5f7e79825d23a8c2d2b05a4d20--

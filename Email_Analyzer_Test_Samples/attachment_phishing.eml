@@ -1,0 +1,30 @@
+From: "Accounts" <accounts@vendor.com>
+To: finance@example.com
+Subject: Invoice Attached – Due Today
+Date: Thu, 18 Dec 2025 10:00:00 +0000
+Message-ID: <invoice@vendor.com>
+Authentication-Results: mx.example.com;
+    spf=pass;
+    dkim=pass;
+    dmarc=pass
+
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="attach123"
+
+--attach123
+Content-Type: text/plain; charset="UTF-8"
+
+Please see the attached invoice and process payment today.
+
+--attach123
+Content-Type: text/html; name="Invoice_48392.html"
+Content-Disposition: attachment; filename="Invoice_48392.html"
+
+<html>
+<body>
+<h2>Invoice</h2>
+<p>Please enable content to view invoice.</p>
+</body>
+</html>
+
+--attach123--

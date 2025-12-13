@@ -1,0 +1,18 @@
+From: "CEO" <ceo@legitcorp.com>
+To: finance@legitcorp.com
+Subject: Urgent Request – Confidential
+Date: Tue, 16 Dec 2025 11:45:00 +0000
+Message-ID: <ceo-urgent@legitcorp.com>
+Authentication-Results: mx.legitcorp.com;
+    spf=pass smtp.mailfrom=legitcorp.com;
+    dkim=pass header.d=legitcorp.com;
+    dmarc=pass header.from=legitcorp.com
+Received-SPF: pass
+
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+I need you to process a confidential payment immediately.
+Do not discuss this with anyone.
+
+Send confirmation once done.

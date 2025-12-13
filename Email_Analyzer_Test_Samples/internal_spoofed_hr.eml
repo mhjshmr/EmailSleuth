@@ -1,0 +1,21 @@
+From: "HR Department" <hr@company.com>
+To: employee@company.com
+Return-Path: <hr@external-mail.ru>
+Subject: Immediate Action Required – Policy Update
+Date: Mon, 15 Dec 2025 09:10:00 +0000
+Message-ID: <hr-policy@external-mail.ru>
+Authentication-Results: mx.company.com;
+    spf=fail smtp.mailfrom=external-mail.ru;
+    dkim=fail header.d=company.com;
+    dmarc=fail header.from=company.com
+Received-SPF: fail
+
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Employee,
+
+Please review the attached policy update immediately.
+Failure to comply may result in disciplinary action.
+
+HR Department
