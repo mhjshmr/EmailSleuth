@@ -48,6 +48,13 @@ The tool focuses on analysis and explainability, making it suitable for academic
 - Flags embedded base64 images in HTML emails.
 - Uses Pillow for image inspection when available.
 
+### Attachment Analysis
+- Detects all attachments
+- Flags risky file types:
+     - `.exe`, `.bat`, `.cmd`, `.docm`, `.xlsm`, `.pptm`, `.html`, `.js`, `.jar`
+- Adds attachment threat score
+- Reports suspicious attachments in the report 
+
 ### Threat Scoring System
 
 - Calculates a 0–100 phishing threat score using weighted heuristics.
