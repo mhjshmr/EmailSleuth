@@ -104,7 +104,7 @@ python email_analyzer.py sample_email.eml
 ```
 Follow the prompt to optionally save the analysis report.
 
-### How It Works
+## How It Works
 
 Analysis Flow
 1. Parse email headers and body
@@ -158,4 +158,5 @@ Analysis Flow
 - RFC 6376 – DKIM
 - RFC 7489 – DMARC
 <br><br>
+
 **Stay vigilant. Think before you click. 🔐📧**
