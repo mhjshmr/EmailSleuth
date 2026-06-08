@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analysis Result - EmailSleuth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      /* ===== Report-Specific Styles ===== */
+      .report-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      
+      .report-header h1 {
+        margin-bottom: 0.5rem;
+      }
+      
+      .report-disclaimer {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      /* ===== Risk Summary Card ===== */
+      .risk-summary {
+        text-align: center;
+        padding: 2rem;
+      }
+      
+      .risk-score-display {
+        font-size: 4rem;
+        font-weight: 700;
+        margin: 1rem 0;
+      }
+      
+      .risk-score-display.high { color: var(--danger); }
+      .risk-score-display.moderate { color: var(--warning); }
+      .risk-score-display.low { color: var(--success); }
+      
+      .risk-label {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .risk-label.high { color: var(--danger); }
+      .risk-label.moderate { color: var(--warning); }
+      .risk-label.low { color: var(--success); }
+
+      /* ===== Key Risk Factors ===== */
+      .risk-factors {
+        border-left: 4px solid var(--primary);
+      }
+      
+      .risk-factors.high { border-color: var(--danger); }
+      .risk-factors.moderate { border-color: var(--warning); }
+      .risk-factors.low { border-color: var(--success); }
+      
+      .risk-factor-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+      }
+      
+      .risk-factor-item:last-child {
+        border-bottom: none;
+      }
+      
+      .risk-factor-icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+      
+      .risk-factor-text {
+        color: var(--text-main);
+        line-height: 1.5;
+      }
+
+      /* ===== Recommended Action ===== */
+      .recommended-action {
+        background: rgba(168, 85, 247, 0.1);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+      }
+      
+      .recommended-action.high {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+      
+      .recommended-action.moderate {
+        background: rgba(245, 158, 11, 0.1);
+        border-color: rgba(245, 158, 11, 0.3);
+      }
+      
+      .recommended-action.low {
+        background: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 0.3);
+      }
+      
+      .action-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .action-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+        color: var(--text-main);
+      }
+      
+      .action-icon {
+        font-size: 1.2rem;
+      }
+
+      /* ===== Score Breakdown ===== */
+      .score-breakdown {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+      
+      .breakdown-item {
+        text-align: center;
+        padding: 1rem;
+        background: var(--bg-dark);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+      
+      .breakdown-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+      
+      .breakdown-value {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+      
+      .breakdown-max {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      /* ===== Threat Classification ===== */
+      .threat-classification {
+        text-align: center;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(34, 211, 238, 0.1));
+        border-radius: 12px;
+        border: 1px solid var(--primary);
+      }
+      
+      .threat-type {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+      
+      .threat-description {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* ===== Technical Sections ===== */
+      .technical-section h2 {
+        color: var(--text-main);
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .technical-section h3 {
+        color: var(--secondary);
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .technical-section ul {
+        margin-left: 1.5rem;
+      }
+      
+      .technical-section li {
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+      }
+      
+      .technical-section strong {
+        color: var(--secondary);
+      }
+
+      /* ===== URL Card Styling ===== */
+      .url-item {
+        background: var(--bg-dark);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .url-item strong {
+        color: var(--secondary);
+        word-break: break-all;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      
+      .url-findings {
+        margin-left: 1rem;
+      }
+
+      /* ===== Section Ordering ===== */
+      .section-order-1 { order: 1; }
+      .section-order-2 { order: 2; }
+      .section-order-3 { order: 3; }
+      .section-order-4 { order: 4; }
+      .section-order-5 { order: 5; }
+      .section-order-6 { order: 6; }
+      .section-order-7 { order: 7; }
+      .section-order-8 { order: 8; }
+      .section-order-9 { order: 9; }
+      .section-order-10 { order: 10; }
+      .section-order-11 { order: 11; }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 600px) {
+        .risk-score-display {
+          font-size: 3rem;
+        }
+        
+        .score-breakdown {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Report Header -->
+    <div class="report-header">
+      <h1>🛡️ Email Security Report</h1>
+      <p class="report-disclaimer">
+        ⚠️ This assessment is based on detected indicators, not a definitive verdict.
+      </p>
+    </div>
+
+    <!-- 1. RISK SUMMARY -->
+    <div class="card section section-order-1 risk-summary">
+      <h2>Risk Assessment</h2>
+      <div class="risk-score-display {{ 'high' if risk_level == 'High risk' else 'moderate' if risk_level == 'Moderate risk' else 'low' }}">
+        {{ threat_score }}<span style="font-size: 1.5rem; color: var(--text-muted);">/100</span>
+      </div>
+      {% if risk_level == 'High risk' %}
+        <div class="risk-label high">⚠️ Likely Malicious</div>
+        <p style="color: var(--text-muted);">Multiple high-risk indicators detected. Exercise extreme caution.</p>
+      {% elif risk_level == 'Moderate risk' %}
+        <div class="risk-label moderate">⚡ Suspicious</p>
+        <p style="color: var(--text-muted);">Some concerning indicators found. Verify before proceeding.</p>
+      {% else %}
+        <div class="risk-label low">✅ Likely Safe</div>
+        <p style="color: var(--text-muted);">No significant threats detected.</p>
+      {% endif %}
+    </div>
+
+    <!-- 2. KEY RISK FACTORS -->
+    <div class="card section section-order-2 risk-factors {{ 'high' if risk_level == 'High risk' else 'moderate' if risk_level == 'Moderate risk' else 'low' }}">
+      <h2>🔍 Key Risk Factors</h2>
+      
+      {% if risk_factors and risk_factors|length > 0 %}
+        {% for factor in risk_factors %}
+          <div class="risk-factor-item">
+            <div style="width: 100%;">
+              <div class="risk-factor-title" style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">
+                <span class="risk-factor-icon">⚠️</span> {{ factor.title }}
+              </div>
+              {% if factor.details %}
+                <ul style="margin: 0.5rem 0 0 1.5rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
+                  {% for detail in factor.details %}
+                    <li style="margin-bottom: 0.25rem;">{{ detail }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              {% if factor.impact %}
+                <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--warning); font-style: italic;">
+                  💡 {{ factor.impact }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="risk-factor-item">
+          <span class="risk-factor-icon">✅</span>
+          <span class="risk-factor-text">No critical risk factors detected.</span>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- 3. RECOMMENDED ACTION -->
+    <div class="card section section-order-3 recommended-action {{ 'high' if risk_level == 'High risk' else 'moderate' if risk_level == 'Moderate risk' else 'low' }}">
+      <h2>🎯 Recommended Action</h2>
+      {% if risk_level == 'High risk' %}
+        <ul class="action-list">
+          <li><span class="action-icon">🚫</span> Do not click any links in this email</li>
+          <li><span class="action-icon">📧</span> Report this email to your email provider or IT security team</li>
+          <li><span class="action-icon">🗑️</span> Delete this email immediately</li>
+          <li><span class="action-icon">⚠️</span> Do not download any attachments</li>
+        </ul>
+      {% elif risk_level == 'Moderate risk' %}
+        <ul class="action-list">
+          <li><span class="action-icon">🔍</span> Verify the sender through official channels</li>
+          <li><span class="action-icon">🚫</span> Avoid interacting with links until verified</li>
+          <li><span class="action-icon">👁️</span> Check URLs carefully before clicking</li>
+          <li><span class="action-icon">📋</span> Report suspicious elements to IT if confirmed fake</li>
+        </ul>
+      {% else %}
+        <ul class="action-list">
+          <li><span class="action-icon">✅</span> No immediate action required</li>
+          <li><span class="action-icon">ℹ️</span> Remain vigilant when opening any email</li>
+        </ul>
+      {% endif %}
+    </div>
+
+    <!-- 4. SCORE BREAKDOWN -->
+    <div class="card section section-order-4">
+      <h2>📊 Score Breakdown</h2>
+      <div class="score-breakdown">
+        <div class="breakdown-item">
+          <div class="breakdown-label">Authentication</div>
+          <div class="breakdown-value">{{ auth_score }}</div>
+          <div class="breakdown-max">/ 40</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-label">URL Risks</div>
+          <div class="breakdown-value">{{ url_score }}</div>
+          <div class="breakdown-max">/ 40</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-label">Sender Anomalies</div>
+          <div class="breakdown-value">{{ sender_score }}</div>
+          <div class="breakdown-max">/ 20</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="breakdown-label">Images</div>
+          <div class="breakdown-value">{{ image_score }}</div>
+          <div class="breakdown-max">/ 10</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. THREAT CLASSIFICATION -->
+    <div class="card section section-order-5 threat-classification">
+      <h2>🎭 Threat Classification</h2>
+      {% if threat_types and threat_types[0] != 'No Specific Threat Detected' %}
+        <div class="threat-type">⚠️ {{ threat_types|join(' + ') }}</div>
+        <div class="threat-description">This email exhibits characteristics commonly associated with {{ threat_types[0]|lower }} attempts.</div>
+      {% else %}
+        <div class="threat-type">✅ No Specific Threat Detected</div>
+        <div class="threat-description">The email does not show clear signs of phishing or spoofing.</div>
+      {% endif %}
+    </div>
+
+    <!-- 6. EMAIL HEADERS -->
+    <div class="card section section-order-6 technical-section">
+      <h2>📧 Email Headers</h2>
+      <ul>
+        {% for key, value in headers.items() %}
+          <li><strong>{{ key }}:</strong> {{ value or 'N/A' }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- 7. SENDER ANALYSIS -->
+    <div class="card section section-order-7 technical-section">
+      <h2>👤 Sender Analysis</h2>
+      <ul>
+        <li><strong>Display Name:</strong> {{ sender_info[0] or 'N/A' }}</li>
+        <li><strong>Email Address:</strong> {{ sender_info[1] or 'N/A' }}</li>
+        <li><strong>Domain:</strong> {{ sender_info[2] or 'N/A' }}</li>
+      </ul>
+      <h3>Findings</h3>
+      {% if sender_findings %}
+        <ul>
+          {% for item in sender_findings %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p style="color: var(--success);">No obvious sender issues detected.</p>
+      {% endif %}
+    </div>
+
+    <!-- 8. AUTHENTICATION -->
+    <div class="card section section-order-8 technical-section">
+      <h2>🔐 Authentication (SPF/DKIM/DMARC)</h2>
+      <ul>
+        {% for item in auth_findings %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- 9. URL ANALYSIS -->
+    <div class="card section section-order-9 technical-section">
+      <h2>🔗 URL Analysis</h2>
+      {% if urls %}
+        {% for url in urls %}
+          <div class="url-item">
+            <strong>{{ url }}</strong>
+            <ul class="url-findings">
+              {% for finding in url_analysis[url][1] %}
+                {# Improve technical wording #}
+                {% set improved_finding = finding %}
+                {% if 'invalid syntax' in finding.lower() %}
+                  {% set improved_finding = 'Malformed or potentially obfuscated URL' %}
+                {% elif 'could not parse hostname' in finding.lower() %}
+                  {% set improved_finding = 'Unable to analyze URL structure' %}
+                {% endif %}
+                <li>{{ improved_finding }}</li>
+              {% endfor %}
+              {% if not url_analysis[url][1] %}
+                <li style="color: var(--success);">No obvious URL issues detected.</li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No URLs found in email body.</p>
+      {% endif %}
+    </div>
+
+    <!-- 10. IMAGE ANALYSIS -->
+    <div class="card section section-order-10 technical-section">
+      <h2>🖼️ Image Analysis</h2>
+      {% if image_findings %}
+        <ul>
+          {% for item in image_findings %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p style="color: var(--success);">No suspicious images detected, or none present.</p>
+      {% endif %}
+    </div>
+
+    <!-- 11. ATTACHMENT ANALYSIS -->
+    <div class="card section section-order-11 technical-section">
+      <h2>📎 Attachment Analysis</h2>
+      {% if attachments_list %}
+        <ul>
+          {% for item in attachment_findings %}
+            <li>{{ item }}</li>
+          {% endfor %}
+          {% if not attachment_findings %}
+            {% for filename in attachments_list %}
+              <li>Attachment detected: {{ filename }}</li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      {% else %}
+        <p>No attachments found.</p>
+      {% endif %}
+    </div>
+
+    <!-- RAW REPORT (Collapsible) -->
+    <div class="card section">
+      <details>
+        <summary style="cursor: pointer; color: var(--secondary); font-weight: 500;">
+          📄 View Raw Report
+        </summary>
+        <div class="monospace" style="margin-top: 1rem;">{{ report_text }}</div>
+      </details>
+    </div>
+
+    <!-- DOWNLOAD SECTION -->
+    <div class="card section">
+      <h2>💾 Download Report</h2>
+      <form action="{{ url_for('download_report') }}" method="POST">
+        <label for="filename"><strong>Filename (optional):</strong></label><br>
+        <input type="text" id="filename" name="filename" 
+               placeholder="email_report" style="width: 200px; padding: 8px; margin: 8px 0;">
+        <br>
+        <input type="hidden" name="threat_score" value="{{ threat_score }}">
+        <input type="hidden" name="risk_level" value="{{ risk_level }}">
+        <input type="hidden" name="report_text" value="{{ report_text }}">
+        
+        <button type="submit" class="button">
+          📄 Download as .docx
+        </button>
+      </form>
+      <p class="small" style="margin-top: 10px;">
+        Note: The file will be saved to your browser's default download location.
+      </p>
+    </div>
+
+    <a class="button" href="{{ url_for('index') }}">🔍 Analyze another email</a>
+  </body>
+</html>

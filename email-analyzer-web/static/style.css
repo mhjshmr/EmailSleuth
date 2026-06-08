@@ -1,0 +1,310 @@
+/* ============================================
+   EmailSleuth - Cyber Purple Grid Theme
+   ============================================ */
+
+/* ----- CSS Variables ----- */
+:root {
+  --bg-dark: #0B0C10;
+  --bg-surface: #2F2F3A;
+  --primary: #A855F7;
+  --primary-glow: #A855F7;
+  --secondary: #22D3EE;
+  --secondary-glow: #22D3EE;
+  --text-main: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --border: #4B5563;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  --success: #10B981;
+}
+
+/* ----- Reset & Base ----- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  /* Subtle grid background */
+  background-image: 
+    linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ----- Typography ----- */
+h1, h2, h3 {
+  color: var(--text-main);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  /* Subtle glow */
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* ----- Cards ----- */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  /* Subtle glow on border */
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+.section {
+  margin-bottom: 1.25rem;
+}
+
+/* ----- Badges ----- */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.default, .badge.moderate {
+  background: linear-gradient(135deg, var(--primary), #7C3AED);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.badge.low {
+  background: linear-gradient(135deg, var(--success), #059669);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.badge.high {
+  background: linear-gradient(135deg, var(--danger), #DC2626);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+  animation: pulse-danger 2s infinite;
+}
+
+@keyframes pulse-danger {
+  0%, 100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.7); }
+}
+
+/* ----- Buttons ----- */
+.button, button, input[type="submit"] {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), #7C3AED);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  /* Glow effect */
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.button:hover, button:hover, input[type="submit"]:hover {
+  background: linear-gradient(135deg, #9333EA, var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+}
+
+.button:active, button:active {
+  transform: translateY(0);
+}
+
+/* ----- Form Elements ----- */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+/* File input specific styling */
+input[type="file"] {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--bg-surface);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ----- Lists ----- */
+ul {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+
+li {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+li strong {
+  color: var(--secondary);
+}
+
+/* ----- Monospace / Code ----- */
+.monospace {
+  white-space: pre-wrap;
+  font-family: 'Consolas', 'Monaco', monospace;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+/* ----- Flash Messages ----- */
+.flash {
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: var(--bg-surface);
+}
+
+.flash.error {
+  border-color: var(--danger);
+  color: var(--danger);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.flash.success {
+  border-color: var(--success);
+  color: var(--success);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.flash.warning {
+  border-color: var(--warning);
+  color: var(--warning);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+/* ----- Small Text ----- */
+.small {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ----- Form Container ----- */
+form {
+  margin-top: 1rem;
+}
+
+/* ----- URL/Domain Display ----- */
+.card div > strong {
+  color: var(--secondary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .badge {
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EmailSleuth - Email Header Forensics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      /* ===== Premium Hero Section ===== */
+      .hero {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .hero .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 500px;
+        margin: 0 auto 1rem;
+        line-height: 1.6;
+      }
+      
+      .hero .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(168, 85, 247, 0.1);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: var(--primary);
+      }
+
+      /* ===== Glassmorphism Card ===== */
+      .card {
+        background: rgba(47, 47, 58, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(168, 85, 247, 0.2);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        /* Animated glow */
+        animation: card-glow 4s ease-in-out infinite;
+      }
+      
+      @keyframes card-glow {
+        0%, 100% {
+          box-shadow: 0 0 30px rgba(168, 85, 247, 0.15), 0 0 60px rgba(34, 211, 238, 0.05);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(168, 85, 247, 0.25), 0 0 80px rgba(34, 211, 238, 0.1);
+        }
+      }
+      
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+        opacity: 0.5;
+      }
+
+      .card h2 {
+        color: var(--text-main);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        border: none;
+        padding: 0;
+      }
+
+      .card p {
+        margin-bottom: 1.5rem;
+      }
+
+      .card p strong {
+        color: var(--secondary);
+      }
+
+      /* ===== Drag & Drop File Upload ===== */
+      .file-upload-wrapper {
+        position: relative;
+        margin: 1.5rem 0;
+      }
+
+      .file-upload-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 2rem;
+        border: 2px dashed rgba(168, 85, 247, 0.4);
+        border-radius: 16px;
+        background: rgba(11, 12, 16, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .file-upload-container:hover {
+        border-color: var(--primary);
+        background: rgba(168, 85, 247, 0.05);
+      }
+
+      .file-upload-container.dragover {
+        border-color: var(--secondary);
+        background: rgba(34, 211, 238, 0.1);
+        transform: scale(1.02);
+      }
+
+      .file-upload-container input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .upload-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .upload-text {
+        text-align: center;
+      }
+
+      .upload-text .main {
+        color: var(--text-main);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .upload-text .sub {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .upload-text .sub span {
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .file-name-display {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        background: rgba(34, 211, 238, 0.1);
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        border-radius: 8px;
+        color: var(--secondary);
+        font-size: 0.9rem;
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .file-name-display.show {
+        display: flex;
+      }
+
+      /* ===== Premium Button ===== */
+      .button-premium {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 50%, var(--secondary) 100%);
+        background-size: 200% 200%;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 600;
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button-premium::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .button-premium:hover {
+        background-position: 100% 0;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6);
+      }
+
+      .button-premium:hover::before {
+        left: 100%;
+      }
+
+      .button-premium:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+      }
+
+      /* ===== Trust Message ===== */
+      .trust-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.75rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 8px;
+        color: var(--success);
+        font-size: 0.9rem;
+      }
+
+      /* ===== Enhanced Background ===== */
+      body {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.1) 0%, transparent 40%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* ===== Form Layout ===== */
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+        
+        .card {
+          padding: 1.5rem;
+        }
+        
+        .file-upload-container {
+          padding: 1.5rem 1rem;
+        }
+        
+        .button-premium {
+          padding: 0.875rem 1.5rem;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>EmailSleuth</h1>
+      <p class="subtitle">Advanced email header forensics & phishing detection tool. Analyze .eml files for suspicious headers, URLs, images, and attachments.</p>
+      <div class="tagline">
+        <span>🛡️</span> Phishing Analysis Engine
+      </div>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Main Card -->
+    <div class="card">
+      <h2>Analyze Your Email</h2>
+      <p>Upload a <strong>.eml</strong> email file and inspect headers, links, images, attachments, and threat score.</p>
+      
+      <form action="{{ url_for('analyze') }}" method="post" enctype="multipart/form-data">
+        <div class="file-upload-wrapper">
+          <div class="file-upload-container" id="fileUploadContainer">
+            <input type="file" id="eml_file" name="eml_file" accept=".eml" required>
+            <span class="upload-icon">📧</span>
+            <div class="upload-text">
+              <div class="main">Drop your .eml file here</div>
+              <div class="sub">or <span>browse</span> to upload</div>
+            </div>
+          </div>
+          <div class="file-name-display" id="fileNameDisplay">
+            <span>✓</span>
+            <span id="fileName">filename.eml</span>
+          </div>
+        </div>
+        
+        <button type="submit" class="button-premium">
+          <span>🔍</span> Analyze Email
+        </button>
+      </form>
+
+      <div class="trust-message">
+        <span>🔒</span> Your file is processed locally and not stored
+      </div>
+    </div>
+
+    <script>
+      // File upload interaction
+      const fileInput = document.getElementById('eml_file');
+      const fileContainer = document.getElementById('fileUploadContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileNameSpan = document.getElementById('fileName');
+
+      // Show selected filename
+      fileInput.addEventListener('change', function(e) {
+        if (this.files && this.files[0]) {
+          fileNameSpan.textContent = this.files[0].name;
+          fileNameDisplay.classList.add('show');
+        }
+      });
+
+      // Drag and drop effects
+      fileContainer.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('dragover');
+      });
+
+      fileContainer.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+      });
+
+      fileContainer.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+        
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          fileInput.files = e.dataTransfer.files;
+          fileNameSpan.textContent = e.dataTransfer.files[0].name;
+          fileNameDisplay.classList.add('show');
+        }
+      });
+    </script>
+  </body>
+</html>
