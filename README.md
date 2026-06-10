@@ -8,7 +8,7 @@ Developed for cybersecurity education, phishing awareness, digital forensics tra
 
 <br>
 <div align="center"> 
-  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/Analyzis%20Output.png" alt="EmailSlueth Home Page" width="900" height="700"> 
+  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/UI%20Screenshots/Analyzis%20Output.png" alt="EmailSlueth Home Page" width="900" height="700"> 
 </div>
 
 
@@ -133,11 +133,9 @@ The core analysis engine is implemented in `Email_Analyzer.py`, while `app.py` p
 
 ## Screenshots
 
-> Replace these placeholders after capturing actual UI images.
-
-- `docs/screenshot-home.png` — Web upload page.
-- `docs/screenshot-result.png` — Analysis results dashboard.
-- `docs/screenshot-docx-export.png` — Report export section.
+- [Upload Interface](https://raw.githubusercontent.com/mhjshmr/EmailSleuth/main/UI%20Screenshots/127.0.0.1_5000_.png) — Initial upload interface for submitting documents.
+- [Analysis Dashboard](https://raw.githubusercontent.com/mhjshmr/EmailSleuth/main/UI%20Screenshots/127.0.0.1_5000_analyze.png) — Main analysis dashboard displaying extracted insights and results.
+- [Raw Report Output](https://raw.githubusercontent.com/mhjshmr/EmailSleuth/main/UI%20Screenshots/127.0.0.1_5000_analyze_raw.report.png) — Raw generated report output before export/formatting.
 
 ## Installation
 
