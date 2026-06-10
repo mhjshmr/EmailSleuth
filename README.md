@@ -247,6 +247,10 @@ The aggregate score is capped at 100 and mapped to risk tiers:
 - `High risk` — 50 and above
 
 ## Technical Details
+<br>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mhjshmr&layout=compact&theme=github_dark" />
+</p>
 
 - Language: Python 3.x
 - Framework: Flask
@@ -255,6 +259,7 @@ The aggregate score is capped at 100 and mapped to risk tiers:
 - Image analysis: `Pillow` (optional)
 - URL expansion: `requests` (optional)
 - Frontend: HTML, CSS, Jinja2 templates
+
 
 ## Core Functions and Modules
 
