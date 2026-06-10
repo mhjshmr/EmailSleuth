@@ -8,7 +8,7 @@ Developed for cybersecurity education, phishing awareness, digital forensics tra
 
 <br>
 <div align="center"> 
-  <img src="https://raw.githubusercontent.com/mhjshmr/EmailSleuth/main/UI%20Screenshots/Analyzis%20Output.png" alt="EmailSlueth Home Page" width="900" height="700"> 
+  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/UI%20Screenshots/Analyzis%20Output.png" alt="EmailSlueth Home Page" width="900" height="700"> 
 </div>
 
 
