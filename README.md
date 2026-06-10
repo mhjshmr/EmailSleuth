@@ -6,13 +6,9 @@ The platform enables users to investigate suspicious emails by examining message
 
 Developed for cybersecurity education, phishing awareness, digital forensics training, and incident response exercises, EmailSleuth combines a browser-based interface with a standalone analysis engine to provide both accessibility and technical depth.
 
-<br><br>
-<div align="center">
-  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/Analyzis%20Output.png"
-       alt="EmailSleuth Home Page"
-       width="900"
-       height="700"
-       style="border: 3px solid #800080; border-radius: 8px;">
+<br>
+<div align="center"> 
+  <img src="https://github.com/mhjshmr/EmailSleuth/blob/main/Analyzis%20Output.png" alt="EmailSlueth Home Page" width="900" height="700"> 
 </div>
 
 
